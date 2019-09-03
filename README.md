@@ -1,15 +1,16 @@
 [![Build Status](https://travis-ci.org/projectblacklight/arclight.svg?branch=master)](https://travis-ci.org/projectblacklight/arclight)
+[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](CONTRIBUTORS.md)
 [![Code Climate Test Coverage](https://codeclimate.com/github/sul-dlss/arclight/badges/coverage.svg)](https://codeclimate.com/github/sul-dlss/arclight/coverage)
 
 # ArcLight
 
-A Rails engine supporting discovery of archival materials.
+A Rails engine supporting discovery of archival materials, based on [Blacklight](https://projectblacklight.org/)
 
-During April - June 2017, ArcLight underwent its initial development as a Minimally Viable Product (MVP). The MVP is targeted for content that is described in the [Encoded Archival Description](http://eadiva.com/2/) (EAD) format. Future development is in the planning phase with no definitive timeline as yet.
+> ℹ️ From August-October 2019, Stanford University, University of Michigan, Indiana University, Princeton University, and Duke University are collaborating on a second phase of ArcLight! See the [project board](https://github.com/projectblacklight/arclight/projects/2) or our [demo videos](https://www.youtube.com/playlist?list=PLMdUaIJ0G8QiIXZ_SFHASJErD14CJW-p5) to follow our work.
 
 ## Requirements
 
-* [Ruby](https://www.ruby-lang.org/en/) 2.2 or later
+* [Ruby](https://www.ruby-lang.org/en/) 2.5 or later
 * [Rails](http://rubyonrails.org) 5.0 or later
 
 ## Installation
@@ -51,41 +52,35 @@ See the [ArcLight demo](https://arclight-demo.projectblacklight.org/) and [ArcLi
 See [Arclight Major Features](https://github.com/sul-dlss/arclight/wiki/Arclight-Major-Features) for a list of features.
 
 ### Traject indexing of EAD content
-[Traject](https://github.com/traject/traject) is a proposed way forward for migrating indexing. An EAD2 can be indexed by doing the following:
+[Traject](https://github.com/traject/traject) is a high performance way of transforming documents for indexing into Solr and how ArcLight does indexing. An EAD2 can be indexed by doing the following:
 
 ```sh
 bundle exec traject -u http://127.0.0.1:8983/solr/blacklight-core -i xml -c lib/arclight/traject/ead2_config.rb spec/fixtures/ead/sample/large-components-list.xml
 ```
 
-Or pass the `TRAJECT=true` env variable to current indexing tasks.
+Or
 
 ```sh
-TRAJECT=true bundle exec rake arclight:seed
-end
+bundle exec rake arclight:seed
+```
 
 ## Resources
 
 * General
-  * [ArcLight team wiki](https://wiki.duraspace.org/display/hydra/ArcLight): includes design process documentation
-  * Use the [ArcLight Google Group](http://groups.google.com/d/forum/arclight-community) to contact us with questions
-* MVP Implementation:
   * [ArcLight demo site](https://arclight-demo.projectblacklight.org/)
-  * [YouTube channel](https://www.youtube.com/channel/UCbSaP93HdypsW6hXy7V1nFQ): MVP sprint demo videos
-  * [ArcLight MVP Wiki](https://github.com/sul-dlss/arclight/wiki)
+  * [ArcLight project wiki](https://bit.ly/arclightproject): includes design process documentation
+  * [ArcLight Github Wiki](https://github.com/sul-dlss/arclight/wiki): developer/implementor documentation
   * [Blacklight wiki](https://github.com/projectblacklight/blacklight/wiki)
+  * Use the [ArcLight Google Group](http://groups.google.com/d/forum/arclight-community) to contact us with questions
+* ArcLight Phase II:
+  * [Project overview](https://wiki.duraspace.org/display/samvera/ArcLight+Phase+II)
+* ArcLight MVP:
+  * [MVP sprint demo videos](https://www.youtube.com/playlist?list=PLMdUaIJ0G8QgbuDCUVvFhTSTO96N37lRA)
+  * [Project overview](https://wiki.duraspace.org/display/samvera/ArcLight+MVP)
 
-## ArcLight MVP Development team
+## Contributors
 
-* Stanford University
-  * [Camille Villa](https://github.com/camillevilla)
-  * [Darren Hardy](https://github.com/drh-stanford)
-  * [Gary Geisler](https://github.com/ggeisler)
-  * [Jack Reed](https://github.com/mejackreed)
-  * [Jennifer Vine](https://github.com/jvine)
-  * [Jessie Keck](https://github.com/jkeck)
-  * [Mark Matienzo](https://github.com/anarchivist)
-* University of Michigan
-  * [Gordon Leacock](https://github.com/gordonleacock)
+See the [CONTRIBUTORS](CONTRIBUTORS.md) file.
 
 ## Development
 
